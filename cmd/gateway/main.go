@@ -4,14 +4,10 @@ import (
 	"flag"
 	"os"
 
-	"github.com/Naist4869/gateway/internal/service"
-
 	"github.com/Naist4869/base/decodehook"
 	"github.com/spf13/viper"
 
 	"github.com/Naist4869/gateway/internal/conf"
-
-	pb "github.com/Naist4869/common/api/gateway"
 
 	"github.com/Naist4869/base/config"
 	"github.com/go-kratos/kratos/v2"
@@ -26,6 +22,8 @@ var (
 	Name string
 	// Version is the version of the compiled software.
 	Version string
+
+	BuildTime string
 	// flagconf is the config flag.
 	flagconf string
 )
@@ -34,9 +32,7 @@ func init() {
 	flag.StringVar(&flagconf, "conf", "../../conf", "config path, eg: -conf config.yaml")
 }
 
-func newApp(logger log.Logger, hs *http.Server, gs *grpc.Server, srv *service.PayGatewayService) *kratos.App {
-	pb.RegisterPayGatewayServer(gs, srv)
-	pb.RegisterPayGatewayHTTPServer(hs, srv)
+func newApp(logger log.Logger, hs *http.Server, gs *grpc.Server) *kratos.App {
 	return kratos.New(
 		kratos.Name(Name),
 		kratos.Version(Version),
@@ -52,7 +48,7 @@ func newApp(logger log.Logger, hs *http.Server, gs *grpc.Server, srv *service.Pa
 func main() {
 	flag.Parse()
 	logger := log.NewStdLogger(os.Stdout)
-
+	logger.Print("编译时间", BuildTime)
 	if err := config.Init("", "gateway"); err != nil {
 		panic(err)
 	}

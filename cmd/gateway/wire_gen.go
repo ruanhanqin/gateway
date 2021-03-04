@@ -18,8 +18,6 @@ import (
 // Injectors from wire.go:
 
 func initApp(confServer *conf.Server, confData *conf.Data, logger log.Logger) (*kratos.App, error) {
-	httpServer := server.NewHTTPServer(confServer)
-	grpcServer := server.NewGRPCServer(confServer)
 	dataData, err := data.NewData(confData)
 	if err != nil {
 		return nil, err
@@ -27,6 +25,8 @@ func initApp(confServer *conf.Server, confData *conf.Data, logger log.Logger) (*
 	greeterRepo := data.NewGreeterRepo(dataData, logger)
 	greeterUsecase := biz.NewGreeterUsecase(greeterRepo, logger)
 	payGatewayService := service.NewPayGatewayService(greeterUsecase, logger)
-	app := newApp(logger, httpServer, grpcServer, payGatewayService)
+	httpServer := server.NewHTTPServer(confServer, payGatewayService)
+	grpcServer := server.NewGRPCServer(confServer, payGatewayService)
+	app := newApp(logger, httpServer, grpcServer)
 	return app, nil
 }

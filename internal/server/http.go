@@ -1,7 +1,9 @@
 package server
 
 import (
+	"github.com/Naist4869/common/api/gateway"
 	"github.com/Naist4869/gateway/internal/conf"
+	"github.com/Naist4869/gateway/internal/service"
 
 	"github.com/Naist4869/common"
 
@@ -13,16 +15,8 @@ import (
 )
 
 // NewHTTPServer new a HTTP server.
-func NewHTTPServer(c *conf.Server) *http.Server {
-	var opts = []http.ServerOption{
-		http.Middleware(
-			middleware.Chain(
-				recovery.Recovery(),
-				tracing.Server(),
-				logging.Server(),
-			),
-		),
-	}
+func NewHTTPServer(c *conf.Server, greeter *service.PayGatewayService) *http.Server {
+	var opts = []http.ServerOption{}
 	if c.Http.Network != "" {
 		opts = append(opts, http.Network(c.Http.Network))
 	}
@@ -32,8 +26,14 @@ func NewHTTPServer(c *conf.Server) *http.Server {
 	if c.Http.Timeout != nil {
 		opts = append(opts, http.Timeout(c.Http.Timeout.AsDuration()))
 	}
-	opts = append(opts, http.ErrorEncoder(common.EncodeErrorFunc))
-	opts = append(opts, http.EncodeResponseFunc2(common.EncodeResponseFunc))
-
-	return http.NewServer(opts...)
+	srv := http.NewServer(opts...)
+	m := http.Middleware(
+		middleware.Chain(
+			recovery.Recovery(),
+			tracing.Server(),
+			logging.Server(),
+		),
+	)
+	srv.HanldePrefix("/", gateway.NewPayGatewayHandler(greeter, m, http.ErrorEncoder(common.EncodeErrorFunc), http.ResponseEncoder(common.EncodeResponseFunc)))
+	return srv
 }
