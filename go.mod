@@ -1,6 +1,6 @@
 module github.com/Naist4869/gateway
 
-go 1.16
+go 1.15
 
 require (
 	github.com/Naist4869/base v0.0.0-20210304040608-147920fb8f01
