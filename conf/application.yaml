@@ -1,0 +1,89 @@
+service:
+  name: kratos
+  version: v1.0.0
+app:
+  notifyURLPattern: "https://8c63625cd7eb.ngrok.io/notify/{gateway_order_id}"
+  returnURLPattern: "https://8c63625cd7eb.ngrok.io/return/{gateway_order_id}"
+http:
+  network:
+  addr: 0.0.0.0:16111
+  timeout: 1s
+grpc:
+  network:
+  addr: 0.0.0.0:16211
+  timeout: 1s
+4CgyNV4oAXjgX4Y7eqRRjn:
+  channel:
+    WEB:
+      - "available": true
+        "channelAccount": "test"
+        "channelId": "wxpay"
+        "method": "WEB"
+        "ratePercent": 0.6
+      - "available": true
+        "channelAccount": "test1"
+        "channelId": "paypal"
+        "method": "WEB"
+        "ratePercent": 0.6
+    QR_CODE:
+      - "available": true
+        "channelAccount": "test"
+        "channelId": "channel-mock"
+        "method": "WEB"
+        "ratePercent": 0.6
+      - "available": true
+        "channelAccount": "1"
+        "channelId": "channel-personal"
+        "method": "WEB"
+        "ratePercent": 0.6
+  merchant:
+    "appId": "1"
+    "gatewayRsaPrivateKey": |
+      -----BEGIN RSA PRIVATE KEY-----
+      MIIEpAIBAAKCAQEAszh8WPsyt/aC28XYW4DeJgIHp2TcfoKrLdn40yMmECEI5PY8
+      vP+JhVUZ6ANJFmTaPXmFsYrod0caBG1Vld0QwMB8014B0qe1wlO6Q5HMvybdwCIO
+      Whgw5sDpTbA0dlhM7MAJyPiiCzK5vPkbu4LNagbdXfZrSN8fXvRplZdAOH0yBoSE
+      WT33vdUQLdO/tN5ajtQtB+ezZ2bV+RFmzziVD2JmKlF78j01WEIneeNpHjhtnyHd
+      F4+UMXblRiQy5peqy3KHmw73MDhHJldiYDCCBa94Epb2w/ZNqih7hYhN/A57CQTX
+      inq9aj3hW8dK2PBWirpDKT+R45CbZL0YDGgX1QIDAQABAoIBAQCo2GuWLTqwRCcu
+      xGs8ceFYr4rkcsqkyZhZ/0RELpYalfTaOP4qFRlLq0xX4FiIJ4XQat/Az5yJW0ww
+      pYz/PqEc53vyaluPSf+cT+No60CZShWagLtCuA3CKDbkwT/7yt7WIWpWk5+eqzB/
+      z7UH6Ih7/nGpp5GVutfETsH2c+PGEt9wLBuE7RuLMfnmHbe8L7zPlN7gfFne21Og
+      ceup2eReSUqDGdcA+IVt3RluEJuM9GfdBeojx/fsSSxlXl4EvLgZ0MDeD52OxcHF
+      CAy9ddBBh5Obhksyi6pUsSuWpwAGYnYX9bFAgumhJ+HL+BX2FifQKhQusZYOVZob
+      WKCvT9KBAoGBAOxp4zxUuW8NQu1ZOazMioNRZhfhiYvwByAoJQhNou+ptHoeMOce
+      MYq2KVHOcpWhvwaZVn8egdGBuahQOFYMs1E0wWCOlOa9codALMyUoOLDu51C3cHr
+      EzUYbMOZ1rw5OVGMpUeBaGQykzFfZA0fE364ERxCdrjpFtEyC08G1CzhAoGBAMIR
+      lqOmIW3XehAOVuwcm/9YUt58EbaGziarOT924o/KXhmSPDpYnVaQF4khOwKBlBJY
+      xgrr1L0gFsKtl25/xEeVYvTGz17BoMrHlrcf30FsUb7LhQTlmIfn/TggbDzWLDn9
+      fMjIrRKHPSYQAg/0h/uZayKxrCYC6AtUySlXxTV1AoGAJqf5u/euinYEp4KbZ6Ha
+      VDaPFwCN2Q/aWmu2AnGPXtjE5eLh5CiPuTqn7vRu0ACul4mjFw4J9BPeI6NaUteo
+      ynJx3DP0LPZ1L6BSsvDqjamrl79DO14QufHQdvtEnWpN8QOqUtLaGugaIUyTs4GN
+      Un8ObSyA9SNH09T2/GkFcIECgYB+TSwYvVosPnw2Tt7LM6Ni/3yPR3fPrtQj3nOX
+      livFIRM02TNRVbKwT37BxFq/Os2/Uv8wxGLj4yps8MUJKSX44IRSgcEcDjAzSMoR
+      zDBkR7a70YB0u2gVqynliVRoE4sdAphfpBrfYByv1ONCtwZ4/FP5dGBxLJsQJNH2
+      kiTKsQKBgQCsvhpTGXSOA8lOnsivLtQgnZKRySXNbJJxM4qmV57M77ts+xEU3wmc
+      2xEpWEsXV7uxGRVHIUV3JZ9R/0ReDWN6PQRtIVngH3ggH0QYe5NIFJq+R/ARlSfk
+      FDVUGB71WuTZlHNdfhZe8MvTfp48Q3i6aVrazqPD8FVIceOIQGsWDA==
+      -----END RSA PRIVATE KEY-----
+    "gatewayRsaPublicKey": |
+      -----BEGIN PUBLIC KEY-----
+      MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAszh8WPsyt/aC28XYW4De
+      JgIHp2TcfoKrLdn40yMmECEI5PY8vP+JhVUZ6ANJFmTaPXmFsYrod0caBG1Vld0Q
+      wMB8014B0qe1wlO6Q5HMvybdwCIOWhgw5sDpTbA0dlhM7MAJyPiiCzK5vPkbu4LN
+      agbdXfZrSN8fXvRplZdAOH0yBoSEWT33vdUQLdO/tN5ajtQtB+ezZ2bV+RFmzziV
+      D2JmKlF78j01WEIneeNpHjhtnyHdF4+UMXblRiQy5peqy3KHmw73MDhHJldiYDCC
+      Ba94Epb2w/ZNqih7hYhN/A57CQTXinq9aj3hW8dK2PBWirpDKT+R45CbZL0YDGgX
+      1QIDAQAB
+      -----END PUBLIC KEY-----
+    "md5Key": "askldjlk"
+    "merchantRsaPublicKey": |
+      -----BEGIN PUBLIC KEY-----
+      MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2KaaJp7JeW91WlQCfZeS
+      14US/ot9hIJViutv3JHojdgTx+8A8psStKaPl2Ac/MTJ/3mHeopCObmgjw/Au/Ne
+      0PS1rveY0Pcazwnp+R1TDP2H9jagc3GJWS6cvHLB/B4uP3LOnPXN8ctwDVsF19b/
+      howVKUKX6RAX7R2VAEyTIZJIEIQE0fNvRCWqbVv1RB3LU4cbQmW6nX8dP793fP8s
+      /Lhzcj6vS6UKxLVl5CrCCGIJIBYc1mI8RbUYvGqwiONEnEwYvOioAoAlkMIXdFnd
+      IjngHe7JYfGW1NtPzHLG5yw8anYTD/3du7hJ/kSN0WM6NLa0P/vbR5+mxVdoRzY+
+      kQIDAQAB
+      -----END PUBLIC KEY-----
