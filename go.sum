@@ -41,6 +41,8 @@ github.com/Naist4869/base v0.0.0-20210304040608-147920fb8f01 h1:huAzEl3Z/6rE1HFt
 github.com/Naist4869/base v0.0.0-20210304040608-147920fb8f01/go.mod h1:R4vbDspeLAHS7R9/zmELd9ZZMh1IPXlRgleNRe4qCD0=
 github.com/Naist4869/common v0.0.0-20210304065422-7e258cc83195 h1:VtkannYDqjKrbgtv9qNGLI5zLs9sbOTbLx9HLxQyWIY=
 github.com/Naist4869/common v0.0.0-20210304065422-7e258cc83195/go.mod h1:hVopEt1BSFjOMCOZMhYdS0DULMG0tcwhxiudA1Z7tmY=
+github.com/Naist4869/common v0.0.0-20210304121935-9f4a1e8b9e4d h1:LiUAx/kQWaesbkyS9DQ9mBclmrTHMSKP+4MdM3MgF9A=
+github.com/Naist4869/common v0.0.0-20210304121935-9f4a1e8b9e4d/go.mod h1:hVopEt1BSFjOMCOZMhYdS0DULMG0tcwhxiudA1Z7tmY=
 github.com/Naist4869/log v0.0.0-20200521103425-899dfa0728e1/go.mod h1:DqHtYeftdl2LXGFfhe9D2EZ1grcxaSATNbQPA0g2XpM=
 github.com/OneOfOne/xxhash v1.2.2/go.mod h1:HSdplMjZKSmBqAxg5vPj2TmRDmfkzw+cTzAElWljhcU=
 github.com/Shopify/sarama v1.19.0/go.mod h1:FVkBWblsNy7DGZRfXLU0O9RCGt5g3g3yEuWXgklEdEo=

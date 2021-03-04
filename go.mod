@@ -4,7 +4,7 @@ go 1.15
 
 require (
 	github.com/Naist4869/base v0.0.0-20210304040608-147920fb8f01
-	github.com/Naist4869/common v0.0.0-20210304065422-7e258cc83195
+	github.com/Naist4869/common v0.0.0-20210304121935-9f4a1e8b9e4d
 	github.com/go-kratos/kratos/v2 v2.0.0-alpha5
 	github.com/golang/protobuf v1.4.3
 	github.com/google/wire v0.5.0

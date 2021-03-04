@@ -28,7 +28,6 @@ func NewPayGatewayService(uc *biz.GreeterUsecase, logger log.Logger) *PayGateway
 }
 
 func (s *PayGatewayService) Pay(ctx context.Context, req *pb.PayRequest) (resp *pb.PayResponse, err error) {
-	ctx = context.Background()
 
 	s.log.Infof("Received: %v", req.GetMethod())
 	if err := req.Validate(); err != nil {

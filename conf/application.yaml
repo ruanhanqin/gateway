@@ -2,8 +2,8 @@ service:
   name: kratos
   version: v1.0.0
 app:
-  notifyURLPattern: "https://8c63625cd7eb.ngrok.io/notify/{gateway_order_id}"
-  returnURLPattern: "https://8c63625cd7eb.ngrok.io/return/{gateway_order_id}"
+  notifyURLPattern: "https://431b8ac5fed5.ngrok.io/notify/{gateway_order_id}"
+  returnURLPattern: "https://431b8ac5fed5.ngrok.io/return/{gateway_order_id}"
 http:
   network:
   addr: 0.0.0.0:16111
